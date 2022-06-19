@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import EaseOutCubic from '../utils/EaseOutCubic'
+import EaseOutCubic from 'utils/EaseOutCubic'
 
 const useCountUp = (target: number): number => {
   const [count, setCount] = useState(0)

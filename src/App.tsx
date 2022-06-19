@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { useEffect } from 'react'
 
-import GlobalStyle from './styles/GlobalStyle'
-import TripleLogo from './components/TripleLogo'
-import Descs from './components/Descs'
-import Awards from './components/Awards'
+import GlobalStyle from 'styles/GlobalStyle'
+import TripleLogo from 'components/TripleLogo'
+import Descs from 'components/Descs'
+import Awards from 'components/Awards'
 
 const Wrapper = styled.div`
   display: flex;

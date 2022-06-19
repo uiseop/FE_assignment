@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import useFadeIn from '../hooks/useFadeIn'
-import useCountUp from '../hooks/useCountUp'
-import FadeInInterface from '../types/FadeInInterface'
+import useFadeIn from 'hooks/useFadeIn'
+import useCountUp from 'hooks/useCountUp'
+import FadeInInterface from 'types/FadeInInterface'
 
 const DescNumberList = styled.ul<FadeInInterface>`
   margin-bottom: 50px;

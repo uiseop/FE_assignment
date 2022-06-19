@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import Images from '../assets/images'
-import useFadeIn from '../hooks/useFadeIn'
-import FadeInInterface from '../types/FadeInInterface'
+import Images from 'assets/images'
+import useFadeIn from 'hooks/useFadeIn'
+import FadeInInterface from 'types/FadeInInterface'
 
 const TripleLogoWrapper = styled.figure<FadeInInterface>`
   display: flex;
