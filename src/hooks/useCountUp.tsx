@@ -1,35 +1,32 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 import EaseOutCubic from 'utils/EaseOutCubic'
 
-const useCountUp = (target: number): number => {
-  const [count, setCount] = useState(0)
-
-  const CountUp = () => {
-    let StartTime = 0
-    const duration = 2000
-
-    const animate = (timeStamp: number): void => {
-      if (!StartTime) {
-        StartTime = timeStamp
-      }
-      const runTime = timeStamp - StartTime
-      const relativeProgress = runTime / duration
-      const easeProgress = EaseOutCubic(relativeProgress)
-      const currentCount = Math.floor(target * Math.min(easeProgress, 1))
-      setCount(currentCount)
-      if (runTime < duration) {
-        requestAnimationFrame(animate)
-      }
+const useCountUp = (
+  target: number,
+  setCount: (value: number) => void,
+): void => {
+  const requestRef = useRef<number>(0)
+  const startTimeRef = useRef<number>(0)
+  const duration = 2000
+  const animate = (timeStamp: number): void => {
+    if (!startTimeRef.current) {
+      startTimeRef.current = timeStamp
     }
-
-    requestAnimationFrame(animate)
+    const runTime = timeStamp - startTimeRef.current
+    const relativeProgress = runTime / duration
+    const easeProgress = EaseOutCubic(relativeProgress)
+    const currentCount = Math.round(target * Math.min(easeProgress, 1))
+    setCount(currentCount)
+    if (runTime < duration) {
+      requestRef.current = requestAnimationFrame(animate)
+    }
   }
 
   useEffect(() => {
-    CountUp()
+    requestRef.current = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(requestRef.current)
   }, [])
-  return count
 }
 
 export default useCountUp

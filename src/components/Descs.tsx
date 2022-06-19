@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { useState } from 'react'
 
 import useFadeIn from 'hooks/useFadeIn'
 import useCountUp from 'hooks/useCountUp'
@@ -31,9 +32,22 @@ const DescNumber = styled.li`
 
 function Descs() {
   const [opacity, translateY] = useFadeIn()
-  const userCount = useCountUp(700)
-  const reviewCount = useCountUp(100)
-  const storeCount = useCountUp(470)
+  const [userCount, setUserCount] = useState(0)
+  const [reviewCount, setReviewCount] = useState(0)
+  const [storeCount, setStoreCount] = useState(0)
+
+  useCountUp(750, (currentCount: number) =>
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setUserCount((_prevCount: number) => currentCount),
+  )
+  useCountUp(100, (currentCount: number) =>
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setReviewCount((_prevCount: number) => currentCount),
+  )
+  useCountUp(470, (currentCount: number) =>
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setStoreCount((_prevCount: number) => currentCount),
+  )
 
   return (
     <DescNumberList isVisible={opacity} translateY={translateY}>
