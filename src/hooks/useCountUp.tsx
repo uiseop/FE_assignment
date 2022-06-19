@@ -28,7 +28,7 @@ const useCountUp = (target: number): number => {
 
   useEffect(() => {
     CountUp()
-  }, [target])
+  }, [])
   return count
 }
 
