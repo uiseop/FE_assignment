@@ -1,3 +1,6 @@
+![triple-guide-section-1](https://user-images.githubusercontent.com/75655047/174540666-0a1961d2-f374-4ae8-b6b1-eef71d693019.gif)
+
+
 # 프로젝트 실행 방법
 
 ```bash
